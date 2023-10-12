@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         for (let i = 0; i < tombola.length; i++) {
             const number = tombola[i];
-            if (parseInt(number.innerText) === numberSorted) {
+            if (parseInt(number.innerText) === numberSorted && !number.classList.contains("numberSorted")) {
                 number.classList.add("numberSorted")
             }
         }
