@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const tombola = [];
     const userNumber = []
     const userNumber2 = []
+    const drawnNumbers = [];
     const numberToSort = document.getElementById("numberToSort")
     const numberExtracted = document.getElementById("numberExtracted")
 
@@ -34,8 +35,12 @@ document.addEventListener("DOMContentLoaded", function () {
     numberToSort.onclick = function (e) {
         e.preventDefault()
         numberExtracted.innerText = ""
-        const numberSorted = Math.floor(Math.random() * 76) + 1
-        console.log(numberSorted);
+        let numberSorted;
+        do {
+            numberSorted = Math.floor(Math.random() * 76) + 1;
+        } while (drawnNumbers.includes(numberSorted));
+
+        drawnNumbers.push(numberSorted);
 
         for (let i = 0; i < tombola.length; i++) {
             const number = tombola[i];
